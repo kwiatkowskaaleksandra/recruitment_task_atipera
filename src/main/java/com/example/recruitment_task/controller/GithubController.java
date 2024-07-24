@@ -2,7 +2,7 @@ package com.example.recruitment_task.controller;
 
 import com.example.recruitment_task.exception.dto.ErrorResponse;
 import com.example.recruitment_task.exception.GithubException;
-import com.example.recruitment_task.model.RepositoryDetails;
+import com.example.recruitment_task.model.dto.RepositoryDetailsResponse;
 import com.example.recruitment_task.service.GithubService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
-import java.util.List;
 
 /**
  * Controller for handling GitHub repository-related requests.
@@ -31,7 +30,7 @@ public class GithubController {
     @GetMapping("/repository/{username}")
     public ResponseEntity<?> getRepos(@PathVariable String username) {
         try {
-            List<RepositoryDetails> nonForkRepos = githubService.getNonForkRepositories(username);
+            RepositoryDetailsResponse nonForkRepos = githubService.getNonForkRepositories(username);
             return ResponseEntity.ok(nonForkRepos);
         } catch (HttpClientErrorException e) {
             if (e.getStatusCode() == HttpStatus.NOT_FOUND) {

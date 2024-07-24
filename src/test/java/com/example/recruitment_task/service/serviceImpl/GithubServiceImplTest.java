@@ -2,6 +2,7 @@ package com.example.recruitment_task.service.serviceImpl;
 
 import com.example.recruitment_task.exception.GithubException;
 import com.example.recruitment_task.model.*;
+import com.example.recruitment_task.model.dto.RepositoryDetailsResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -15,7 +16,6 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -63,15 +63,15 @@ class GithubServiceImplTest {
                 any(ParameterizedTypeReference.class)
         )).thenReturn(ResponseEntity.ok(Collections.singletonList(branch)));
 
-        List<RepositoryDetails> result = githubService.getNonForkRepositories("test-user");
+        RepositoryDetailsResponse result = githubService.getNonForkRepositories("test-user");
 
         assertNotNull(result);
-        assertEquals(1, result.size());
-        assertEquals("test-repo", result.get(0).getName());
-        assertEquals("test-owner", result.get(0).getOwnerLogin());
-        assertEquals(1, result.get(0).getBranches().size());
-        assertEquals("main", result.get(0).getBranches().get(0).getName());
-        assertEquals("test-sha", result.get(0).getBranches().get(0).getCommit().getSha());
+        assertEquals(1, result.getRepositoryDetailsList().size());
+        assertEquals("test-repo", result.getRepositoryDetailsList().get(0).getName());
+        assertEquals("test-owner", result.getRepositoryDetailsList().get(0).getOwnerLogin());
+        assertEquals(1, result.getRepositoryDetailsList().get(0).getBranches().size());
+        assertEquals("main", result.getRepositoryDetailsList().get(0).getBranches().get(0).getName());
+        assertEquals("test-sha", result.getRepositoryDetailsList().get(0).getBranches().get(0).getCommit().getSha());
     }
 
     @Test

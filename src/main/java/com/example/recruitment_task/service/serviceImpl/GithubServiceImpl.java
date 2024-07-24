@@ -4,6 +4,7 @@ import com.example.recruitment_task.exception.GithubException;
 import com.example.recruitment_task.model.Branch;
 import com.example.recruitment_task.model.Repository;
 import com.example.recruitment_task.model.RepositoryDetails;
+import com.example.recruitment_task.model.dto.RepositoryDetailsResponse;
 import com.example.recruitment_task.service.GithubService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;
@@ -26,7 +27,7 @@ public class GithubServiceImpl implements GithubService {
     private final RestTemplate restTemplate;
 
     @Override
-    public List<RepositoryDetails> getNonForkRepositories(String username) {
+    public RepositoryDetailsResponse getNonForkRepositories(String username) {
         String url = "https://api.github.com/users/" + username + "/repos";
 
         ResponseEntity<List<Repository>> response;
@@ -49,10 +50,10 @@ public class GithubServiceImpl implements GithubService {
             throw new GithubException("Unexpected response from GitHub");
         }
 
-        return repositoryList.stream()
+        return new RepositoryDetailsResponse( repositoryList.stream()
                 .filter(repo -> !repo.isFork())
                 .map(this::getRepoDetails)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
     }
 
     /**

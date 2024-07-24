@@ -1,9 +1,9 @@
 package com.example.recruitment_task.controller;
 
-import com.example.recruitment_task.exception.GithubException;
 import com.example.recruitment_task.model.Branch;
 import com.example.recruitment_task.model.Commit;
 import com.example.recruitment_task.model.RepositoryDetails;
+import com.example.recruitment_task.model.dto.RepositoryDetailsResponse;
 import com.example.recruitment_task.service.GithubService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.Collections;
-
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -49,15 +48,15 @@ class GithubControllerTest {
 
         RepositoryDetails repoDetails = new RepositoryDetails("test-repo", "test-owner", Collections.singletonList(branch));
 
-        when(githubService.getNonForkRepositories("test-user")).thenReturn(Collections.singletonList(repoDetails));
+        when(githubService.getNonForkRepositories("test-user")).thenReturn(new RepositoryDetailsResponse(Collections.singletonList(repoDetails)));
 
         mockMvc.perform(get("/github/repository/test-user")
                         .header("Accept", "application/json"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].name").value("test-repo"))
-                .andExpect(jsonPath("$[0].ownerLogin").value("test-owner"))
-                .andExpect(jsonPath("$[0].branches[0].name").value("main"))
-                .andExpect(jsonPath("$[0].branches[0].commit.sha").value("test-sha"));
+                .andExpect(jsonPath("$.repositoryDetailsList[0].name").value("test-repo"))
+                .andExpect(jsonPath("$.repositoryDetailsList[0].ownerLogin").value("test-owner"))
+                .andExpect(jsonPath("$.repositoryDetailsList[0].branches[0].name").value("main"))
+                .andExpect(jsonPath("$.repositoryDetailsList[0].branches[0].commit.sha").value("test-sha"));
     }
 
     @Test
