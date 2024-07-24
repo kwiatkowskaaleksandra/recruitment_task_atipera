@@ -36,104 +36,106 @@ http://localhost:8080/github/repository/kwiatkowskaaleksandra
 
 Example Response:
 ```json
-[
-    {
-        "name": "Biuro-Podrozy-Sky-Route-Travel",
-        "ownerLogin": "kwiatkowskaaleksandra",
-        "branches": [
-            {
-                "name": "main",
-                "commit": {
-                    "sha": "bf0d9e7b2a1b27d66dbbe9788e9b8f6b4ac39db5"
+{
+    "repositoryDetailsList": [
+        {
+            "name": "Biuro-Podrozy-Sky-Route-Travel",
+            "ownerLogin": "kwiatkowskaaleksandra",
+            "branches": [
+                {
+                    "name": "main",
+                    "commit": {
+                        "sha": "bf0d9e7b2a1b27d66dbbe9788e9b8f6b4ac39db5"
+                    }
                 }
-            }
-        ]
-    },
-    {
-        "name": "goTravelApp",
-        "ownerLogin": "kwiatkowskaaleksandra",
-        "branches": [
-            {
-                "name": "master",
-                "commit": {
-                    "sha": "b04a3913f7d0a77dc62acd93e78098620e614d36"
+            ]
+        },
+        {
+            "name": "goTravelApp",
+            "ownerLogin": "kwiatkowskaaleksandra",
+            "branches": [
+                {
+                    "name": "master",
+                    "commit": {
+                        "sha": "b04a3913f7d0a77dc62acd93e78098620e614d36"
+                    }
                 }
-            }
-        ]
-    },
-    {
-        "name": "Kalkulator",
-        "ownerLogin": "kwiatkowskaaleksandra",
-        "branches": [
-            {
-                "name": "master",
-                "commit": {
-                    "sha": "b41a0046e901cbbb90cd3a9a2df7016f568afedf"
+            ]
+        },
+        {
+            "name": "Kalkulator",
+            "ownerLogin": "kwiatkowskaaleksandra",
+            "branches": [
+                {
+                    "name": "master",
+                    "commit": {
+                        "sha": "b41a0046e901cbbb90cd3a9a2df7016f568afedf"
+                    }
                 }
-            }
-        ]
-    },
-    {
-        "name": "notebookApp",
-        "ownerLogin": "kwiatkowskaaleksandra",
-        "branches": [
-            {
-                "name": "main",
-                "commit": {
-                    "sha": "98d101925af5948652016c9ba7dd4752aca4aaef"
+            ]
+        },
+        {
+            "name": "notebookApp",
+            "ownerLogin": "kwiatkowskaaleksandra",
+            "branches": [
+                {
+                    "name": "main",
+                    "commit": {
+                        "sha": "98d101925af5948652016c9ba7dd4752aca4aaef"
+                    }
                 }
-            }
-        ]
-    },
-    {
-        "name": "recruitment_task",
-        "ownerLogin": "kwiatkowskaaleksandra",
-        "branches": [
-            {
-                "name": "master",
-                "commit": {
-                    "sha": "ad2d203106350989e475533e78eae006e7e5664f"
+            ]
+        },
+        {
+            "name": "recruitment_task",
+            "ownerLogin": "kwiatkowskaaleksandra",
+            "branches": [
+                {
+                    "name": "master",
+                    "commit": {
+                        "sha": "ad2d203106350989e475533e78eae006e7e5664f"
+                    }
                 }
-            }
-        ]
-    },
-    {
-        "name": "recruitment_task_atipera",
-        "ownerLogin": "kwiatkowskaaleksandra",
-        "branches": [
-            {
-                "name": "master",
-                "commit": {
-                    "sha": "af76387e0ba7b3ee49cc6a5cbc34315135d1cefe"
+            ]
+        },
+        {
+            "name": "recruitment_task_atipera",
+            "ownerLogin": "kwiatkowskaaleksandra",
+            "branches": [
+                {
+                    "name": "master",
+                    "commit": {
+                        "sha": "75a821012b0081a5ce75ae2480208c83c72a665b"
+                    }
                 }
-            }
-        ]
-    },
-    {
-        "name": "SchematBlokowy",
-        "ownerLogin": "kwiatkowskaaleksandra",
-        "branches": [
-            {
-                "name": "master",
-                "commit": {
-                    "sha": "f04ffca89021bfcb30efe97c575c5d3457d061d0"
+            ]
+        },
+        {
+            "name": "SchematBlokowy",
+            "ownerLogin": "kwiatkowskaaleksandra",
+            "branches": [
+                {
+                    "name": "master",
+                    "commit": {
+                        "sha": "f04ffca89021bfcb30efe97c575c5d3457d061d0"
+                    }
                 }
-            }
-        ]
-    },
-    {
-        "name": "SklepWhisky",
-        "ownerLogin": "kwiatkowskaaleksandra",
-        "branches": [
-            {
-                "name": "master",
-                "commit": {
-                    "sha": "6e06c9b723abd520ff4c153a269e7c126f2ab907"
+            ]
+        },
+        {
+            "name": "SklepWhisky",
+            "ownerLogin": "kwiatkowskaaleksandra",
+            "branches": [
+                {
+                    "name": "master",
+                    "commit": {
+                        "sha": "6e06c9b723abd520ff4c153a269e7c126f2ab907"
+                    }
                 }
-            }
-        ]
-    }
-]
+            ]
+        }
+    ]
+}
 ```
 
 For a username that does not exist `test-owner`:
